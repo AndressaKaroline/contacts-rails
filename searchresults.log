@@ -1,0 +1,15 @@
+commit 86d4996582e74d3bc7eca4f3ff437d9b51f2d55d
+Author: Andressa Karoline <andressakdogado@gmail.com>
+Date:   Sun Sep 22 19:15:30 2019 -0300
+
+    Validation for deleting users with contacts
+
+diff --git a/app/models/contact.rb b/app/models/contact.rb
+index 803d349..4940ebc 100644
+--- a/app/models/contact.rb
++++ b/app/models/contact.rb
+@@ -1,3 +1,4 @@
+ class Contact < ApplicationRecord
+   belongs_to :user
++  validates_uniqueness_of :name, scope: :user_id
+ end
