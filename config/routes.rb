@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   get 'users/create'
   get 'users/edit'
-  get 'users/update'
-  get 'users/destroy'
+  get 'users/:id/edit' => 'users#edit', as: :edit_user
+	patch 'users/:id' => 'users#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
