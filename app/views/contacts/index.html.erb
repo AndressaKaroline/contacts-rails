@@ -1,0 +1,7 @@
+<h1>Contacts#index</h1>
+<% @contacts.each do |contact| %>
+  <p>
+    <%= link_to contact.name, user_contact_path(contact.user_id, contact) %>
+    <%= link_to "delete", user_contact_path(contact.user_id, contact), method: :delete %>
+  </p>
+<% end %>
