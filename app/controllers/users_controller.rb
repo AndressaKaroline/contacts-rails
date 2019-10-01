@@ -8,9 +8,16 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
+    @user = User.new(params_user)
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      render action: :new
+    end
   end
 
   def edit
@@ -21,4 +28,8 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
+  def params_user
+    params.require(:user).permit(:name)
+  end  
 end
